@@ -53,7 +53,7 @@ public class item_activity extends AppCompatActivity {
 
         //ست کردن عکس در اکتیویتی
         try {
-            String uri = "drawable/Fimg/" + imageDB;
+            String uri = "drawable/" + imageDB;
             // int imageResource = R.drawable.icon;
             int imageResource = getResources().getIdentifier(uri, null, getPackageName());
             Drawable imgdrawebale = getResources().getDrawable(imageResource);
