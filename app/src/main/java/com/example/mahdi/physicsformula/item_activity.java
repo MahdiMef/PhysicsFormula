@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,15 +24,23 @@ public class item_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_activity);
-
         setup_objects();
         getData();
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
-    private void btn_back(View view) {
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; goto parent activity.
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void getData() {
@@ -50,7 +59,7 @@ public class item_activity extends AppCompatActivity {
             Drawable imgdrawebale = getResources().getDrawable(imageResource);
             img_view.setImageDrawable(imgdrawebale);
         } catch (Exception e) {
-            Toast toast = Toast.makeText(this,"عکس لود نشده *بررسی کنید",Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "عکس لود نشده *بررسی کنید", Toast.LENGTH_SHORT);
             toast.show();
         }
 
@@ -58,9 +67,12 @@ public class item_activity extends AppCompatActivity {
     }
 
     private void setup_objects() {
-        btn_back = findViewById(R.id.btn_back);
         txt_title = findViewById(R.id.Title);
         txt_content = findViewById(R.id.Content);
         img_view = findViewById(R.id.img_IA);
     }
+
+
+
+
 }
