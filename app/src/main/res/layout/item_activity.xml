@@ -31,7 +31,7 @@
             android:padding="2dp"
             android:text="title"
             android:textColor="@color/Title_color"
-            android:textDirection="rtl"
+
             android:textSize="35dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -46,7 +46,6 @@
             android:text="content"
             android:textColor="@color/Content_color"
             android:textColorLink="@color/colorPrimary"
-            android:textDirection="rtl"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Title" />
