@@ -1,18 +1,13 @@
 package com.example.mahdi.physicsformula;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.support.v7.widget.Toolbar;
-
-import java.util.List;
-import java.util.Random;
 
 public class homePage extends AppCompatActivity {
     Button btnclass12;
@@ -21,11 +16,23 @@ public class homePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
-        ConstraintLayout CL=findViewById(R.id.ConstraintLayoutHome);
-        Random rnd = new Random();
-        int color = Color.argb(175, rnd.nextInt(256), rnd.nextInt(255), rnd.nextInt(255));
-        CL.setBackgroundColor(color);
+        setContentView(R.layout.activitydrawer);
+//        ConstraintLayout CL=findViewById(R.id.ConstraintLayoutHome);
+//        Random rnd = new Random();
+//        int color = Color.argb(175, rnd.nextInt(256), rnd.nextInt(255), rnd.nextInt(255));
+//        CL.setBackgroundColor(color);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
+        //کلید باز و بسته شدن دراور
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        //NavigationView navigationView =  findViewById(R.id.nav_view);
+
     }
 
     public void btnClass12(View view) {

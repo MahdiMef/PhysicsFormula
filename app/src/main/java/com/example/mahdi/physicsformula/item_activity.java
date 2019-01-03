@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,20 +18,26 @@ public class item_activity extends AppCompatActivity {
     Context context;
     TextView txt_title;
     TextView txt_content;
-    Button btn_back;
     ImageView img_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_activity);
+        setContentView(R.layout.app_bar_items);
+
+        //گرفتن دیتا
         setup_objects();
         getData();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        //کلید برگشت صفحه لیست ها
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();     //تعریف کاستوم اکشن بار
+        actionBar.setDisplayHomeAsUpEnabled(true);      //ست کردن کلید برگشت
 
     }
 
-
+    // فعال کردن کلید بازگشت به صفحه قبل
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
