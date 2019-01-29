@@ -36,11 +36,12 @@ public class AdapterRV_formula extends RecyclerView.Adapter<AdapterRV_formula.it
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Context context = v.getContext();
                 Intent intent = new Intent(context,item_activity.class); //کامل شود
                // intent.putExtra(DatabaseOpenHelper.COL_ID,items.getId());
-                intent.putExtra(Database_asset_helper.COL_TITLE,items.getTitle());
-                intent.putExtra(Database_asset_helper.COL_CONTENT,items.getContent());
-                intent.putExtra(Database_asset_helper.COL_IMG,items.getImage());
+                intent.putExtra(DatabaseOpenHelper.COL_TITLE,items.getTitle());
+                intent.putExtra(DatabaseOpenHelper.COL_CONTENT,items.getContent());
+                intent.putExtra(DatabaseOpenHelper.COL_IMG,items.getImage());
                 context.startActivities(new Intent[]{intent});
             }
         });
